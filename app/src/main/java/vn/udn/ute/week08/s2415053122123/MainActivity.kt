@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
             lamSachDuLieu()
         }
     }
-}
         private fun xuLyKiemTra() {
             xoaLoiCu()
             val ten = binding.edtTenHocPhan.text.toString().trim()
@@ -32,10 +31,12 @@ class MainActivity : AppCompatActivity() {
                 val qt = chuoiQT.toDouble()
                 val ck = chuoiCK.toDouble()
                 val t = tinhT(qt, ck)
-                hienThiKetQua().text = ""
+                val phanLoai = phanLoai(t,ck)
+                hienThiKetQua(t, phanLoai)
             }
         }
-        private fun kiemTraDauVao(ten: String, chuoiQT: String, chuoiCK: String): Boolean {
+
+    private fun kiemTraDauVao(ten: String, chuoiQT: String, chuoiCK: String): Boolean {
             var hopLe = true
             if (ten.isEmpty() || ten.length !in 1..40) {
                 binding.tilTenHocPhan.error = "Tên học phần không hợp lệ"
@@ -57,12 +58,19 @@ class MainActivity : AppCompatActivity() {
             return qt * 0.4 + ck * 0.6
         }
         private fun phanLoai(t: Double,ck: Double ) : String{
-
+            if (t>=D && 2<=ck && ck>=3.0)
+                return "Không đạt"
             return if (t>=D && ck>=3.0) "Đạt" else "Không đạt"
         }
         private fun hienThiKetQua(t: Double, phanLoai: String) {
             val tFormat = String.format("%.2f", t)
-            binding.tvKetQua.text = "Tên HP: $ten\nĐiểm QT: $qt\nĐiểm CK: $ck\nTrung bình: $tFormat \nKết luận:$phanLoai"
+            binding.tvKetQua.text =
+                "Tên học phần: ${binding.edtTenHocPhan.text}\n" +
+                        "Điểm quá trình: ${binding.edtDiemQT.text}\n" +
+                        "Điểm cuối kì: ${binding.edtDiemCK.text}\n" +
+                        "Điểm tổng kết: $tFormat\n" +
+                        "Kết quả: $phanLoai"
+
         }
         private fun xoaLoiCu() {
             binding.tilTenHocPhan.error = null
