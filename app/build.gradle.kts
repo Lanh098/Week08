@@ -3,8 +3,8 @@ plugins {
 }
 
 android {
-    viewBinding {
-        enabled = true
+    buildFeatures {
+        viewBinding = true
     }
     namespace = "vn.udn.ute.week08.s2415053122123"
     compileSdk {
