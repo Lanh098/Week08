@@ -1,19 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
+    android:orientation="vertical"
+    android:padding="16dp">
+    <!-- Tên/MSV/ Lớp học phần-->
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Bùi Tá Lanh - 2415053122123 - 126LTTDTDD01"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp"/>
+    <!-- Tên học phần -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilTenHocPhan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tên học phần">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtTenHocPhan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+    <!-- Điểm quá trình -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilDiemQT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Điểm quá trình (QT)"
+        android:layout_marginTop="8dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtDiemQT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+        </com.google.android.material.textfield.TextInputLayout>
+    <!-- Điểm cuối kì -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilDiemCK"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Điểm cuối kì (CK)"
+        android:layout_marginTop="8dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtDiemCK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Các nút tính năng-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnKiemTra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kiểm tra"
+            android:layout_marginEnd="16dp"/>
+        <Button
+            android:id="@+id/btnXoa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xóa"/>
+    </LinearLayout>
+
+    <!-- Nơi hiển thị kết quả -->
+    <TextView
+        android:id="@+id/tvKetQua"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"/>
+    </LinearLayout>
+
+
+
+
+
+    
+
+
+
+
