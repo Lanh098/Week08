@@ -60,7 +60,8 @@ class MainActivity : AppCompatActivity() {
         private fun phanLoai(t: Double,ck: Double ) : String{
             if (t>=D && 2<=ck && ck>=3.0)
                 return "Không đạt"
-            return if (t>=D && ck>=3.0) "Đạt" else "Không đạt"
+            if (t>=D && ck>=3.0)
+                return "Đạt" else return "Không đạt"
         }
         private fun hienThiKetQua(t: Double, phanLoai: String) {
             val tFormat = String.format("%.2f", t)
